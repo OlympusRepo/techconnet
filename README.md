@@ -1,3 +1,3 @@
-### Fiver Clone website
+### Techcon website
 
-#### Live demo : <a href="https://Techcon-web.netlify.app/">Techcon clone</a>
+#### Live demo : <a href="https://Techcon-web.netlify.app/">Techcon</a>
