@@ -51,7 +51,7 @@ const Register = () => {
         toast.error(error?.response?.message, {
           position: "bottom-right",
           toastId: 1,
-          autoClose: 1500,
+          autoClose: 5000,
         });
       }
     }
@@ -111,7 +111,7 @@ const Register = () => {
                 onBlur={handleBlur}
                 error={getError("username")}
                 id="username" // Ensure this id is unique
-                placeholder="Johndoe"
+                placeholder="John Doe"
                 className="bg-white border border-[#C7CBD1] w-full h-[40px] rounded px-4 focus:border-[1.5px] focus:border-primary outline-none text-sm"
               />
 

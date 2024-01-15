@@ -65,7 +65,7 @@ const Homepage = () => {
           )}
         </>
       )}
-      <Features />
+      {/* <Features /> */}
       <Marketplace />
       <Business />
       <Slides rowId="2" distance={1200}>
