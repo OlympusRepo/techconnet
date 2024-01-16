@@ -36,14 +36,18 @@ const Pay = () => {
   };
 
   return (
-    <div className="py-40 pb-10">
+    <div id="checkout">
       {clientSecret && (
-        <Elements options={options} stripe={stripePromise}>
-          <CheckoutForm />
-        </Elements>
+        <EmbeddedCheckoutProvider
+          stripe={stripePromise}
+          options={{clientSecret}}
+        >
+          <EmbeddedCheckout />
+        </EmbeddedCheckoutProvider>
       )}
     </div>
-  );
-};
+  )
+}
+
 
 export default Pay;
