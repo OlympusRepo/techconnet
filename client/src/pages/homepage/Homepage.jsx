@@ -56,16 +56,16 @@ const Homepage = () => {
                   <SingleCard key={item._id} item={item} />
                 ))}
               </Slides>
-              <Slides rowId="2">
+              {/* <Slides rowId="2">
                 {data.map((item) => (
                   <SingleCard key={item._id} item={item} />
                 ))}
-              </Slides>
+              </Slides> */}
             </>
           )}
         </>
       )}
-      {/* <Features /> */}
+      <Features />
       <Marketplace />
       <Business />
       <Slides rowId="2" distance={1200}>
