@@ -5,7 +5,6 @@ import {
   EmbeddedCheckout
 } from '@stripe/react-stripe-js';
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
-import "./App.css";
 
 const stripePromise = loadStripe("pk_test_51OPujsGtiWlekgp2NSbDVq0Ne20b0KAHHAM3QWuz42Lzyp6g3Sp0qJfmUrQLHu0kqg5gdIQ0MFEMqDnZGS9MEkSz00QfSqxWlH");
 
