@@ -81,6 +81,18 @@ const CheckoutForm = () => {
 
   const paymentElementOptions = {
     layout: "tabs",
+    style: {
+      base: {
+        fontSize: "16px",
+        color: "#424770",
+        "::placeholder": {
+          color: "#aab7c4",
+        },
+      },
+      invalid: {
+        color: "#9e2146",
+      },
+    },
   };
 
   return (
@@ -91,17 +103,18 @@ const CheckoutForm = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
         <PaymentElement id="payment-element" options={paymentElementOptions} />
-        <button className="w-fit text-white bg-primary/80 hover:bg-primary mt-2 py-2 px-4 rounded-md transition-all duration-300" disabled={isLoading || !stripe || !elements} id="submit">
-          <span id="button-text">
-            {isLoading ? (
-              <div className="spinner" id="spinner"></div>
-            ) : (
-              "Pay now"
-            )}
-          </span>
-        </button>
-        {/* Show any error or success messages */}
-        {message && <div id="payment-message">{message}</div>}
+        <button
+            className="w-full bg-primary cursor-pointer text-white py-2 px-4 rounded-md transition-all duration-300"
+            disabled={isLoading || !stripe || !elements}
+            id="submit"
+          >
+            <span id="button-text">
+              {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
+            </span>
+          </button>
+
+          {/* Show any error or success messages */}
+          {message && <div id="payment-message" className="text-red-500 mt-2">{message}</div>}
       </form>
     </div>
   );
