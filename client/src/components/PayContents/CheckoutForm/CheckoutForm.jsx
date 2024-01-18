@@ -48,7 +48,7 @@ const CheckoutForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!stripe || !elements) {
+    if (stripe || elements) {
       // Stripe.js has not yet loaded.
       // Make sure to disable form submission until Stripe.js has loaded.
       return;
@@ -81,29 +81,63 @@ const CheckoutForm = () => {
 
   const paymentElementOptions = {
     layout: "tabs",
+    style: {
+      base: {
+        fontSize: "16px",
+        color: "#424770",
+        "::placeholder": {
+          color: "#aab7c4",
+        },
+      },
+      invalid: {
+        color: "#9e2146",
+      },
+    },
   };
 
   return (
-    <div className="w-[90%] flex items-center justify-center mx-auto">
-      <form id="payment-form" onSubmit={handleSubmit}>
-        <LinkAuthenticationElement
-          id="link-authentication-element"
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <PaymentElement id="payment-element" options={paymentElementOptions} />
-        <button className="w-fit text-white bg-primary/80 hover:bg-primary mt-2 py-2 px-4 rounded-md transition-all duration-300" disabled={isLoading || !stripe || !elements} id="submit">
-          <span id="button-text">
-            {isLoading ? (
-              <div className="spinner" id="spinner"></div>
-            ) : (
-              "Pay now"
-            )}
-          </span>
-        </button>
-        {/* Show any error or success messages */}
-        {message && <div id="payment-message">{message}</div>}
-      </form>
-    </div>
+    <>
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </head>
+      <div className="w-[90%] flex items-center justify-center mx-auto">
+        <form id="payment-form" onSubmit={handleSubmit}>
+          <div className="mb-4">
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="mt-1 p-2 border border-gray-300 rounded-md w-full"
+            />
+          </div>
+
+          <div className="mb-4">
+            <label htmlFor="payment-element" className="block text-sm font-medium text-gray-700">
+              Card Details
+            </label>
+            <PaymentElement id="payment-element" options={paymentElementOptions} />
+          </div>
+
+          <button
+            className="w-full bg-primary cursor-pointer text-white py-2 px-4 rounded-md transition-all duration-300"
+            disabled={isLoading || !stripe || !elements}
+            id="submit"
+          >
+            <span id="button-text">
+              {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
+            </span>
+          </button>
+
+          {/* Show any error or success messages */}
+          {message && <div id="payment-message" className="text-red-500 mt-2">{message}</div>}
+        </form>
+      </div>
+    </>
   );
 };
 
