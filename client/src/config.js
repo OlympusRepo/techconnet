@@ -1,6 +1,6 @@
 import axios from "axios";
 export const Axios = axios.create({
-  baseURL: "https://techcon.cyclic.app",
+  baseURL: "https://techcon.onrender.com",
   withCredentials: true,
   headers: {
     "Content-Type": "application/json",
@@ -9,4 +9,4 @@ export const Axios = axios.create({
   },
 });
 
-// https://cyan-sheep-belt.cyclic.app
+// https://cyan-sheep-belt.cyclic.app https://techcon.cyclic.app 
