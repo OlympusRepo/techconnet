@@ -74,7 +74,7 @@ const Features = () => {
                 </span>
               </span>
             </div>
-            {showVideo && (
+            {/* {showVideo && (
               <div className="fixed top-0 right-0 bg-[#00000085]  w-full h-full z-40 place-items-center flex justify-center items-center">
                 <div
                   ref={videoRef}
@@ -87,7 +87,7 @@ const Features = () => {
                   ></video>
                 </div>
               </div>
-            )}
+            )} */}
           </div>
         </div>
       </div>
