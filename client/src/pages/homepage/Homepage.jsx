@@ -68,11 +68,11 @@ const Homepage = () => {
       <Features />
       <Marketplace />
       <Business />
-      <Slides rowId="2" distance={1200}>
+      {/* <Slides rowId="2" distance={1200}>
         {testimonyData.map((item, i) => (
           <Testimony item={item} key={i} />
         ))}
-      </Slides>
+      </Slides> */}
       {/* <Slides
         rowId="3"
         distance={500}
